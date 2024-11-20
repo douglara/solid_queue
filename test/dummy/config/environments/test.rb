@@ -59,4 +59,7 @@ Rails.application.configure do
   config.solid_queue.logger = ActiveSupport::Logger.new(nil)
 
   config.solid_queue.shutdown_timeout = 2.seconds
+
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
 end

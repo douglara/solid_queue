@@ -65,4 +65,7 @@ Rails.application.configure do
 
   logger = ActiveSupport::Logger.new(STDOUT)
   config.solid_queue.on_thread_error = ->(exception) { logger.error("#{exception.class.name}: #{exception.message}\n#{(exception.backtrace || caller)&.join("\n")}") }
+
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
 end
